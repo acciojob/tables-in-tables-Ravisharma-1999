@@ -5,11 +5,11 @@ describe('Testing nested tables', () => {
     // Check that there are exactly 5 tables
     cy.get('table').should('have.length', 5);
 
-    // Check the headers of the second nested table
+    // Use .eq(1) to target the second table (index 1)
     cy.get('table').eq(1).within(() => {
-      cy.get('th').eq(0).should('contain', 'Nested Table 2');
-      cy.get('th').eq(1).should('contain', 'Column 1');
-      cy.get('th').eq(2).should('contain', 'Column 2');
+      cy.get('th').eq(0).should('contain', 'Nested Table 2'); // Check for "Nested Table 2"
+      cy.get('th').eq(1).should('contain', 'Column 1');      // Check for "Column 1"
+      cy.get('th').eq(2).should('contain', 'Column 2');      // Check for "Column 2"
     });
   });
 });
